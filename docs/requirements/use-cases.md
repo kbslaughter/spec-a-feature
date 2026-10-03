@@ -1543,11 +1543,11 @@ Details:
 
 **Main Success Scenario:**
 1. The instructor indicates to see which students of a course section have not submitted for a week.
-2. The system asks the instructor to select one of the course section's active weeks, with the previous week selected by default.
+2. The system asks the instructor to select one of the course section's active weeks, selecting by default the most recent active week that has ended, or the current week if none has ended.
 3. The instructor selects a week.
 4. The system displays the students who have an outstanding submission for that week, and how many there are (BR-outstanding-submission).
 5. The instructor indicates to nudge the listed students.
-6. The system states how many students will be nudged and asks the instructor to confirm.
+6. The system states how many listed students can currently be nudged and asks the instructor to confirm.
 7. The instructor confirms.
 8. The system sends one nudge to each listed student who still has an outstanding item, and records the time of each nudge.
 9. The system informs the instructor how many students were nudged, and names each student who was not nudged with the reason.
@@ -1574,8 +1574,8 @@ Details:
   - 8a1. The system does not nudge her and reports her in step 9.
 - **8b. A listed student has already been nudged within the period set by BR-nudge-limit:**
   - 8b1. The system does not nudge her again and reports her in step 9.
-- **8c. The mail server rejects a student's address:**
-  - 8c1. The system logs the failure, records no nudge for her, continues with the remaining students, and reports her in step 9.
+- **8c. Sending the nudge to a student fails** (for example, the mail server rejects her address):
+  - 8c1. The system logs the failure, does not retry, records no nudge for her, continues with the remaining students, and reports her in step 9.
 
 **Priority:** Medium
 **Frequency of Use:** Approximately 2 users, 1-2 usages per week.
